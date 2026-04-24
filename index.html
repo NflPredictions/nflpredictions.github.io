@@ -28,29 +28,40 @@
       }
       .h1 {
         color: rgba(200, 200, 200, 1);
-        font-size: 25px;
+        font-size: 35px;
         padding: 0px;
-        margin: 10px 20px;
+        margin: 10px 40px;
       }
-      input {
+      .logIn {
         outline: none;
         background-color: rgba(0, 125, 255, 0.05);
         border: 1px solid rgba(0, 125, 255, 0.5);
         border-radius: 5px;
-        margin: 10px 40px;
+        margin: 5px 40px;
         padding: 5px 10px;
         font-size: 16px;
         color: rgba(200, 200, 200, 1);
       }
-      input:focus {
+      .logIn:focus {
         background-color: rgba(0, 125, 255, 0.3);
+      }
+      .align {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
       }
     </style>
   </head>
   <body>
     <div class="mainDiv">
       <h1 class="h1">Nfl Predictions</h1>
-      <input type="text" placeholder="Username"></input>
+      <input  class="logIn" type="text" placeholder="Username"></input>
+      <input class="logIn" type="password" placeholder="password"></input><br>
+      <div class="align">
+        <button class="logIn">Sign Up</button>
+        <button class="logIn">Sign In</button>
+      </div>
     </div>
   </body>
 </html>
