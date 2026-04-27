@@ -41,15 +41,26 @@
         padding: 5px 10px;
         font-size: 16px;
         color: rgba(200, 200, 200, 1);
+        width: 200px;
       }
       .logIn:focus {
         background-color: rgba(0, 125, 255, 0.3);
+      }
+      .button {
+        outline: none;
+        background-color: rgba(0, 125, 255, 0.05);
+        border: 1px solid rgba(0, 125, 255, 0.5);
+        border-radius: 5px;
+        margin: 0px;
+        padding: 5px 10px;
+        font-size: 16px;
+        color: rgba(200, 200, 200, 1);
       }
       .align {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 80%;
+        margin-bottom: 20px;
       }
     </style>
   </head>
@@ -58,9 +69,9 @@
       <h1 class="h1">Nfl Predictions</h1>
       <input  class="logIn" type="text" placeholder="Username"></input>
       <input class="logIn" type="password" placeholder="password"></input><br>
-      <div class="align">
-        <button class="logIn">Sign Up</button>
-        <button class="logIn">Sign In</button>
+      <div class="align" style="width: 220px;">
+        <button class="button">Sign Up</button>
+        <button class="button">Sign In</button>
       </div>
     </div>
   </body>
