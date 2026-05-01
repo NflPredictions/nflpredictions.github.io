@@ -3,13 +3,22 @@
   <head>
     <title>Nfl Predictions || Login</title>
     <style>
+      :root {
+        --backgroundColor: rgba(0, 125, 255, 0.05);
+        --textColor: rgba(200, 200, 200, 1);
+        --mainBorderColor: rgba(0, 125, 255, 0.3);
+        --borderColor: rgba(0, 125, 255, 0.5);
+        --graphLineColor: rgba(0, 125, 255, 0.2);
+        --graphPathColor: rgba(0, 125, 255, 1);
+        --fontFamily: "Roboto", sans-serif; 
+      }
       html {
         background-image: linear-gradient(to top right, rgb(0, 20, 50), rgb(0, 5, 10));
       }
       body {
         font-family: "Roboto", sans-serif;
         background-image: linear-gradient(to bottom right, rgb(0, 20, 50), rgb(0, 5, 10));
-        color: rgba(200, 200, 200, 1);
+        color: var(--textColor);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -20,8 +29,8 @@
         font-size: 1rem;
       }
       .mainDiv {
-        background-color: rgba(0, 125, 255, 0.05);
-        border: 2px solid rgba(0, 125, 255, 0.3);
+        background-color: var(--backgroundColor);
+        border: 2px solid var(--mainBorderColor);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -29,42 +38,45 @@
         align-items: center;
         padding: 0px;
         margin: 0px;
+        max-width: 95%;
       }
       .h1 {
-        color: rgba(200, 200, 200, 1);
+        color: var(--textColor);
         font-size: 2.5rem;
         padding: 0px;
         margin: 10px 40px;
+        margin-bottom: 0px;
       }
       .logIn {
         outline: none;
-        background-color: rgba(0, 125, 255, 0.05);
-        border: 1px solid rgba(0, 125, 255, 0.5);
+        background-color: var(--backgroundColor);
+        border: 1px solid var(--borderColor);
         border-radius: 5px;
         margin: 5px 40px;
         padding: 5px 10px;
         font-size: 1rem;
-        color: rgba(200, 200, 200, 1);
+        color: var(--textColor);
         width: 200px;
       }
       .logIn:focus {
-        background-color: rgba(0, 125, 255, 0.3);
+        background-color: var(--backgroundColor);
       }
       .button {
         outline: none;
-        background-color: rgba(0, 125, 255, 0.05);
-        border: 1px solid rgba(0, 125, 255, 0.5);
+        background-color: var(--backgroundColor);
+        border: 1px solid var(--borderColor);
         border-radius: 5px;
         margin: 0px;
         padding: 5px 10px;
+        color: var(--textColor);
         font-size: 1rem;
-        color: rgba(200, 200, 200, 1);
       }
       .align {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 20px;
+        max-width: 95%;
       }
     </style>
   </head>
