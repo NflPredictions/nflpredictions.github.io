@@ -11,6 +11,7 @@
         --graphLineColor: rgba(0, 125, 255, 0.2);
         --graphPathColor: rgba(0, 125, 255, 1);
         --fontFamily: "Roboto", sans-serif; 
+        --vh: 100vh;
       }
       html {
         background-image: linear-gradient(to top right, rgb(0, 20, 50), rgb(0, 5, 10));
@@ -38,7 +39,8 @@
         align-items: center;
         padding: 0px;
         margin: 0px;
-        max-width: 95%;
+        max-width: 95vw;
+        max-height: 95dvh;
       }
       .h1 {
         color: var(--textColor);
@@ -91,7 +93,6 @@
         width: 600px;
         height: 400px;
         max-width: 90vw;
-        max-height: 60vw;
       }
       .graphLine {
         fill: none;
@@ -116,29 +117,46 @@
         font-size: 0.75rem;
         fill: var(--graphPathColor);
       }
+      .scroll {
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+        align-items: center;
+        margin: 0px;
+        padding: 10px 10px;
+        max-width: 90vw;
+        height: 600px;
+        max-height: 80%;
+        overflow-x: hidden;
+        overflow-y: none;
+      }
     </style>
   </head>
   <body>
     <div class="mainDiv">
       <h1 class="h1">NFL Predictions</h1>
       <hr>
-      <svg class="graph" viewbox="0 0 600 400">
-        <line class="graphLine" x1="50" y1="50" x2="575" y2="50"></line>
-        <line class="graphLine" x1="50" y1="100" x2="575" y2="100"></line>
-        <line class="graphLine" x1="50" y1="150" x2="575" y2="150"></line>
-        <line class="graphLine" x1="50" y1="200" x2="575" y2="200" style="stroke: var(--borderColor)"></line>
-        <line class="graphLine" x1="50" y1="250" x2="575" y2="250"></line>
-        <line class="graphLine" x1="50" y1="300" x2="575" y2="300"></line>
-        <line class="graphLine" x1="50" y1="350" x2="575" y2="350"></line>
-        <text class="graphText" x="10" y="55">N/A</text>
-        <text class="graphText" x="10" y="105">N/A</text>
-        <text class="graphText" x="10" y="155">N/A</text>
-        <text class="graphText" x="10" y="205">0</text>
-        <text class="graphText" x="10" y="255">N/A</text>
-        <text class="graphText" x="10" y="305">N/A</text>
-        <text class="graphText" x="10" y="355">N/A</text>
-        <path class="graphPath" d="M 50, 200 L 100, 150"></path>
-      </svg>
+      <div class="scroll">
+        <div style="height: 600px; margin: 0px; padding: 0px;">
+          <svg class="graph" viewbox="0 0 600 400">
+            <line class="graphLine" x1="50" y1="50" x2="575" y2="50"></line>
+            <line class="graphLine" x1="50" y1="100" x2="575" y2="100"></line>
+            <line class="graphLine" x1="50" y1="150" x2="575" y2="150"></line>
+            <line class="graphLine" x1="50" y1="200" x2="575" y2="200" style="stroke: var(--borderColor)"></line>
+            <line class="graphLine" x1="50" y1="250" x2="575" y2="250"></line>
+            <line class="graphLine" x1="50" y1="300" x2="575" y2="300"></line>
+            <line class="graphLine" x1="50" y1="350" x2="575" y2="350"></line>
+            <text class="graphText" x="10" y="55">N/A</text>
+            <text class="graphText" x="10" y="105">N/A</text>
+            <text class="graphText" x="10" y="155">N/A</text>
+            <text class="graphText" x="10" y="205">0</text>
+            <text class="graphText" x="10" y="255">N/A</text>
+            <text class="graphText" x="10" y="305">N/A</text>
+            <text class="graphText" x="10" y="355">N/A</text>
+            <path class="graphPath" d="M 50, 200 L 100, 150"></path>
+          </svg>
+        </div>
+      </div>
       <hr style="margin-bottom: 20px;">
       <div class="align" style="width: 90%;">
         <button class="button">Home</button>
