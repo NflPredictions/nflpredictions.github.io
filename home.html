@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL Predictions || Home</title>
-    <meta name="viewport">
     <style>
       :root {
         --backgroundColor: rgba(0, 125, 255, 0.05);
@@ -11,14 +12,15 @@
         --borderColor: rgba(0, 125, 255, 0.5);
         --graphLineColor: rgba(0, 125, 255, 0.2);
         --graphPathColor: rgba(0, 125, 255, 1);
-        --fontFamily: "Roboto", sans-serif; 
+        --fontFamily: "Roboto", sans-serif;
       }
-      html {
-        background-image: linear-gradient(to top right, rgb(0, 20, 50), rgb(0, 5, 10));
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: rgb(0, 15, 30);
       }
       body {
-        padding: 0;
-        margin: 0;
         font-family: var(--fontFamily);
         background-image: linear-gradient(to bottom right, rgb(0, 20, 50), rgb(0, 5, 10));
         color: var(--textColor);
@@ -26,10 +28,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0px;
-        margin: 0px;
-        height: 100vh;
-        font-size: 1rem;
+        padding: 10px;
+        box-sizing: border-box;
       }
       .mainDiv {
         background-color: var(--backgroundColor);
@@ -37,100 +37,86 @@
         border-radius: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        padding: 0px;
-        margin: 0px;
-        max-width: 95vw;
-        max-height: 95dvh;
+        width: 100%;
+        max-width: 700px;
+        max-height: 95vh;
+        overflow: hidden;
       }
       .h1 {
         color: var(--textColor);
-        font-size: 2.5rem;
-        padding: 0px;
-        margin: 10px 40px;
-        margin-bottom: 0px;
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+        margin: 20px;
+        text-align: center;
       }
-      .logIn {
-        outline: none;
+      .scroll {
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+      }
+      .graph-container {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .graph {
         background-color: var(--backgroundColor);
         border: 1px solid var(--borderColor);
-        border-radius: 5px;
-        margin: 5px 40px;
-        padding: 5px 10px;
-        font-size: 1rem;
-        color: var(--textColor);
-        width: 200px;
+        width: 100%;
+        height: auto;
+        display: block;
       }
-      .logIn:focus {
-        background-color: var(--backgroundColor);
+      .align {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 10px;
+        width: 90%;
       }
       .button {
         outline: none;
         background-color: var(--backgroundColor);
         border: 1px solid var(--borderColor);
         border-radius: 5px;
-        margin: 0px;
-        padding: 5px 10px;
+        padding: 8px 15px;
         color: var(--textColor);
         font-size: 1rem;
-      }
-      .align {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        max-width: 95%;
+        cursor: pointer;
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
       }
       hr {
         border: 0;
         width: 100%;
         height: 2px;
         background-color: var(--mainBorderColor);
+        margin: 0;
       }
-      .graph {
-        background-color: var(--backgroundColor);
-        border: 1px solid var(--borderColor);
-        margin: 10px 40px;
-        width: 600px;
-        height: 400px;
-        max-width: 90vw;
+      .graphLine { 
+        fill: none; 
+        stroke: var(--graphLineColor); 
+        stroke-width: 1.75px; 
       }
-      .graphLine {
-        fill: none;
-        stroke: var(--graphLineColor);
-        stroke-width: 1.75px;
-      }
-      .graphAxis {
-        fill: none;
-        stroke: var(--borderColor);
+      .graphAxis { 
+        fill: none; 
+        stroke: var(--borderColor); 
         stroke-width: 1.75px;
       }
       .graphPath {
-        fill: none;
-        stroke: var(--graphPathColor);
-        stroke-width: 1.75px;
+        fill: none; 
+        stroke: var(--graphPathColor); 
+        stroke-width: 1.75px; 
       }
-      .graphPath:hover {
-        stroke-width: 2.75px;
-      }
-      .graphText {
-        font-family: var(--fontFamily);
-        font-size: 0.75rem;
-        fill: var(--graphPathColor);
-      }
-      .scroll {
-        display: flex;
-        flex-direction: column;
-        justify-content: top;
-        align-items: center;
-        margin: 0px;
-        padding: 10px 10px;
-        max-width: 90vw;
-        height: 600px;
-        max-height: 80%;
-        overflow-x: hidden;
-        overflow-y: none;
+      .graphText { 
+        font-family: var(--fontFamily); 
+        font-size: 12px;
+        fill: var(--graphPathColor); 
       }
     </style>
   </head>
@@ -139,8 +125,8 @@
       <h1 class="h1">NFL Predictions</h1>
       <hr>
       <div class="scroll">
-        <div style="height: 600px; margin: 0px; padding: 0px;">
-          <svg class="graph" viewbox="0 0 600 400">
+        <div class="graph-container">
+          <svg class="graph" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
             <line class="graphLine" x1="50" y1="50" x2="575" y2="50"></line>
             <line class="graphLine" x1="50" y1="100" x2="575" y2="100"></line>
             <line class="graphLine" x1="50" y1="150" x2="575" y2="150"></line>
@@ -159,8 +145,8 @@
           </svg>
         </div>
       </div>
-      <hr style="margin-bottom: 20px;">
-      <div class="align" style="width: 90%;">
+      <hr>
+      <div class="align">
         <button class="button">Home</button>
         <button class="button">Betting</button>
         <button class="button">Loans</button>
