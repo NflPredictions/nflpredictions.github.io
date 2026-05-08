@@ -13,6 +13,8 @@
         --graphLineColor: rgba(0, 125, 255, 0.2);
         --graphPathColor: rgba(0, 125, 255, 1);
         --fontFamily: "Roboto", sans-serif;
+        --mainBorderRadius: 10px;
+        --borderRadius: 5px;
       }
       html, body {
         margin: 0;
@@ -57,7 +59,7 @@
         align-items: center;
         flex-grow: 1;
       }
-      .graph-container {
+      .container {
         width: 100%;
         padding: 10px;
         box-sizing: border-box;
@@ -117,6 +119,13 @@
         font-size: 12px;
         fill: var(--graphPathColor); 
       }
+      .section {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid var(--borderColor);
+        border-radius: 5px;
+      }
     </style>
   </head>
   <body>
@@ -124,7 +133,7 @@
       <h1 class="h1">NFL Predictions</h1>
       <hr>
       <div class="scroll">
-        <div class="graph-container">
+        <div class="container">
           <svg class="graph" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
             <line class="graphLine" x1="50" y1="50" x2="575" y2="50"></line>
             <line class="graphLine" x1="50" y1="100" x2="575" y2="100"></line>
@@ -142,6 +151,11 @@
             <text class="graphText" x="10" y="355">N/A</text>
             <path class="graphPath" d="M 50, 200 L 100, 150"></path>
           </svg>
+        </div>
+        <div class="container">
+          <div class="section">
+            
+          </div>
         </div>
       </div>
       <hr>
