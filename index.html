@@ -7,9 +7,12 @@
     <style>
       :root {
         --backgroundColor: rgba(0, 125, 255, 0.05);
+        --backgroundColorActive: rgba(0, 125, 255, 0.15);
+        --backgroundColorHover: rgba(0, 125, 255, 0.3);
         --textColor: rgba(200, 200, 200, 1);
         --mainBorderColor: rgba(0, 125, 255, 0.3);
         --borderColor: rgba(0, 125, 255, 0.5);
+        --borderColorActive: rgba(200, 200, 200, 1);
         --fontFamily: "Roboto", sans-serif;
       }
       html, body {
@@ -57,8 +60,8 @@
         box-sizing: border-box;
       }
       .logIn:focus {
-        border-color: var(--graphPathColor);
-        background-color: rgba(0, 125, 255, 0.1);
+        border-color: var(--borderColorActive);
+        background-color: var(--backgroundColorActive);
       }
       .align {
         display: flex;
@@ -79,7 +82,11 @@
         transition: 0.2s;
       }
       .button:hover {
-        background-color: var(--borderColor);
+        background-color: var(--backgroundColorHover);
+      }
+      .button:active {
+        transition: 0s;
+        border-color: var(--borderColorActive);
       }
     </style>
   </head>
