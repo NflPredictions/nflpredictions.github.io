@@ -7,14 +7,19 @@
     <style>
       :root {
         --backgroundColor: rgba(0, 125, 255, 0.05);
+        --backgroundColorActive: rgba(0, 125, 255, 0.15);
+        --backgroundColorHover: rgba(0, 125, 255, 0.3);
         --textColor: rgba(200, 200, 200, 1);
         --mainBorderColor: rgba(0, 125, 255, 0.3);
         --borderColor: rgba(0, 125, 255, 0.5);
+        --borderColorActive: rgba(200, 200, 200, 1);
+        --borderColorHover: rgba(0, 125, 255, 0.7);
+        --fontFamily: "Roboto", sans-serif;
         --graphLineColor: rgba(0, 125, 255, 0.2);
         --graphPathColor: rgba(0, 125, 255, 1);
-        --fontFamily: "Roboto", sans-serif;
         --mainBorderRadius: 10px;
         --borderRadius: 5px;
+        --noColor: rgba(0, 0, 0, 0);
       }
       html, body {
         margin: 0;
@@ -35,7 +40,7 @@
       .mainDiv {
         background-color: var(--backgroundColor);
         border: 2px solid var(--mainBorderColor);
-        border-radius: 10px;
+        border-radius: var(--mainBorderRadius);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -48,6 +53,14 @@
         color: var(--textColor);
         font-size: clamp(1.5rem, 8vw, 2.5rem);
         margin: 20px;
+        padding: 0px;
+        text-align: center;
+      }
+      .h2 {
+        color: var(--textColor);
+        font-size: clamp(1rem, 7vw, 1.75rem);
+        margin: 10px;
+        padding: 0px;
         text-align: center;
       }
       .scroll {
@@ -65,11 +78,15 @@
         box-sizing: border-box;
       }
       .graph {
-        background-color: var(--backgroundColor);
+        background-color: var(--noColor);
         border: 1px solid var(--borderColor);
         width: 100%;
         height: auto;
         display: block;
+        transition: 0.2s;
+      }
+      .graph:hover {
+        border-color: var(--borderColorHover);
       }
       .align {
         display: flex;
@@ -83,7 +100,7 @@
         outline: none;
         background-color: var(--backgroundColor);
         border: 1px solid var(--borderColor);
-        border-radius: 5px;
+        border-radius: var(--borderRadius);
         padding: 8px 15px;
         color: var(--textColor);
         font-size: 1rem;
@@ -91,6 +108,14 @@
         flex: 1;
         min-width: 80px;
         text-align: center;
+        transition: 0.2s;
+      }
+      .button:hover {
+        background-color: var(--backgroundColorHover);
+      }
+      .button:active {
+        transition: 0s;
+        border-color: var(--borderColorActive);
       }
       hr {
         border: 0;
@@ -124,7 +149,15 @@
         padding: 10px;
         box-sizing: border-box;
         border: 1px solid var(--borderColor);
-        border-radius: 5px;
+        border-radius: var(--borderRadius);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.2s;
+      }
+      .section:hover {
+        border-color: var(--borderColorHover);
       }
     </style>
   </head>
@@ -149,12 +182,12 @@
             <text class="graphText" x="10" y="255">N/A</text>
             <text class="graphText" x="10" y="305">N/A</text>
             <text class="graphText" x="10" y="355">N/A</text>
-            <path class="graphPath" d="M 50, 200 L 100, 150"></path>
+            <path class="graphPath" d="M 50, 200"></path>
           </svg>
         </div>
         <div class="container">
           <div class="section">
-            
+            <h2 class="h2" style="display: hidden;">Active Bets</h2>
           </div>
         </div>
       </div>
