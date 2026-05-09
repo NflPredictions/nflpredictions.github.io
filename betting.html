@@ -119,6 +119,22 @@
         transition: 0s;
         border-color: var(--borderColorActive);
       }
+      .input {
+        outline: none;
+        background-color: var(--backgroundColor);
+        border: 1px solid var(--borderColor);
+        border-radius: 5px;
+        margin: 0 0 20px 0;
+        padding: clamp(8px, 3vw, 12px);
+        font-size: 1rem;
+        color: var(--textColor);
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .input:focus {
+        border-color: var(--borderColorActive);
+        background-color: var(--backgroundColorActive);
+      }
       hr {
         border: 0;
         width: 100%;
@@ -162,6 +178,27 @@
       .section:hover {
         border-color: var(--borderColorHover);
       }
+      .inputDiv {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .inputClear {
+        background: none;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        right: 20px;
+        top: clamp(8px, 3vw, 12px);
+        color: var(--textColor);
+        font-size: 1rem;
+        cursor: pointer;
+        text-align: center;
+        transition: 0.2s;
+      }
     </style>
   </head>
   <body>
@@ -171,15 +208,21 @@
       <div class="scroll">
         <div class="container">
           <div class="section">
-            <h2 class="h2">hello</h2>
+            <h2 class="h2">Search</h2>
             <div class="section" style="margin: 10px 0 0 0;">
-              <span>N/A</span>
+              <div class="inputDiv">
+                <input class="input"></input>
+                <button class="inputClear">X</button>
+              </div>
+              <div class="section">
+								<span>N/A</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="container">
           <div class="section">
-            <h2 class="h2">hi</h2>
+            <h2 class="h2">Active Bets</h2>
             <div class="section" style="margin: 10px 0 0 0;">
               <span>N/A</span>
             </div>
