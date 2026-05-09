@@ -9,6 +9,7 @@
         --backgroundColor: rgba(0, 125, 255, 0.05);
         --backgroundColorActive: rgba(0, 125, 255, 0.15);
         --backgroundColorHover: rgba(0, 125, 255, 0.3);
+        --backgroundColorFade: rgba(0, 0, 0, 0.4);
         --textColor: rgba(200, 200, 200, 1);
         --mainBorderColor: rgba(0, 125, 255, 0.3);
         --borderColor: rgba(0, 125, 255, 0.5);
@@ -64,6 +65,7 @@
         text-align: center;
       }
       .scroll {
+        background-image: linear-gradient(to bottom, var(--backgroundColorFade) 0%, var(--noColor) 10%, var(--noColor) 90%, var(--backgroundColorFade) 100%);
         width: 100%;
         overflow-y: auto;
         overflow-x: hidden;
