@@ -194,3 +194,19 @@ hr {
   text-align: center;
   transition: 0.2s;
 }
+.logIn {
+  outline: none;
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 5px;
+  margin: 0 0 20px 0;
+  padding: clamp(8px, 3vw, 12px);
+  font-size: 1rem;
+  color: var(--textColor);
+  width: 100%;
+  box-sizing: border-box;
+}
+.logIn:focus {
+  border-color: var(--borderColorActive);
+  background-color: var(--backgroundColorActive);
+}
