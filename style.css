@@ -1,0 +1,179 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: rgb(0, 15, 45);
+}
+body {
+  font-family: var(--fontFamily);
+  color: var(--textColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.mainDiv {
+  background-color: var(--backgroundColor);
+  border: 2px solid var(--mainBorderColor);
+  border-radius: var(--mainBorderRadius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  max-height: 95vh;
+  overflow: hidden;
+}
+.h1 {
+  color: var(--textColor);
+  font-size: clamp(1.5rem, 8vw, 2.5rem);
+  margin: 20px;
+  padding: 0px;
+  text-align: center;
+}
+.h2 {
+  color: var(--textColor);
+  font-size: clamp(1rem, 7vw, 1.75rem);
+  margin: 10px;
+  padding: 0px;
+  text-align: center;
+}
+.scroll {
+  background-image: linear-gradient(to bottom, var(--backgroundColorFade) 0%, var(--noColor) 10%, var(--noColor) 90%, var(--backgroundColorFade) 100%);
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(150, 180, 210, 0.7) rgba(0, 0, 0, 0);
+}
+.container {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.graph {
+  background-color: var(--noColor);
+  border: 1px solid var(--borderColor);
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.2s;
+}
+.graph:hover {
+  border-color: var(--borderColorHover);
+}
+.align {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 10px;
+  width: 90%;
+}
+.button {
+  outline: none;
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--borderRadius);
+  padding: 8px 15px;
+  color: var(--textColor);
+  font-size: 1rem;
+  cursor: pointer;
+  flex: 1;
+  min-width: 80px;
+  text-align: center;
+  transition: 0.2s;
+}
+.button:hover {
+  background-color: var(--backgroundColorHover);
+}
+.button:active {
+  transition: 0s;
+  border-color: var(--borderColorActive);
+}
+.input {
+  outline: none;
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 5px;
+  margin: 0 0 20px 0;
+  padding: clamp(8px, 3vw, 12px);
+  font-size: 1rem;
+  color: var(--textColor);
+  width: 100%;
+  box-sizing: border-box;
+}
+.input:focus {
+  border-color: var(--borderColorActive);
+  background-color: var(--backgroundColorActive);
+}
+hr {
+  border: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--mainBorderColor);
+  margin: 0;
+}
+.graphLine { 
+  fill: none; 
+  stroke: var(--graphLineColor); 
+  stroke-width: 1.75px; 
+}
+.graphAxis { 
+  fill: none; 
+  stroke: var(--borderColor); 
+  stroke-width: 1.75px;
+}
+.graphPath {
+  fill: none; 
+  stroke: var(--graphPathColor); 
+  stroke-width: 1.75px; 
+}
+.graphText { 
+  font-family: var(--fontFamily); 
+  font-size: 12px;
+  fill: var(--graphPathColor); 
+}
+.section {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--borderColor);
+  border-radius: var(--borderRadius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  flex-shrink: 0;
+}
+.section:hover {
+  border-color: var(--borderColorHover);
+}
+.inputDiv {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.inputClear {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 20px;
+  top: clamp(8px, 3vw, 12px);
+  color: var(--textColor);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+}
