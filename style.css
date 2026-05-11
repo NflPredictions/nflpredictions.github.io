@@ -1,3 +1,20 @@
+:root {
+  --backgroundColor: rgba(0, 125, 255, 0.05);
+  --backgroundColorActive: rgba(0, 125, 255, 0.15);
+  --backgroundColorHover: rgba(0, 125, 255, 0.3);
+  --backgroundColorFade: rgba(0, 0, 0, 0.4);
+  --textColor: rgba(200, 200, 200, 1);
+  --mainBorderColor: rgba(0, 125, 255, 0.3);
+  --borderColor: rgba(0, 125, 255, 0.5);
+  --borderColorActive: rgba(200, 200, 200, 1);
+  --borderColorHover: rgba(0, 125, 255, 0.7);
+  --fontFamily: "Roboto", sans-serif;
+  --graphLineColor: rgba(0, 125, 255, 0.2);
+  --graphPathColor: rgba(0, 125, 255, 1);
+  --mainBorderRadius: 10px;
+  --borderRadius: 5px;
+  --noColor: rgba(0, 0, 0, 0);
+}
 html, body {
   margin: 0;
   padding: 0;
