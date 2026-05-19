@@ -135,6 +135,12 @@ body {
 }
 .button:active {
   transition: 0s;
+  background-color: var(--backgroundColorHover);
+  border-color: var(--borderColorActive);
+}
+.buttonActive {
+  transition: 0s;
+  background-color: var(--backgroundColorHover);
   border-color: var(--borderColorActive);
 }
 .input {
