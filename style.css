@@ -130,6 +130,23 @@ body {
   transition: 0.2s;
   box-sizing: border-box;
 }
+.buttonSpan {
+  outline: none;
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--borderRadius);
+  padding: 8px 15px;
+  margin: 0 0 10px 0;
+  color: var(--textColor);
+  font-size: 1rem;
+  cursor: pointer;
+  flex: 1;
+  min-width: 80px;
+  width: 100%;
+  text-align: center;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
 .button:hover {
   background-color: var(--backgroundColorHover);
 }
