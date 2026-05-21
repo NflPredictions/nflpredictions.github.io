@@ -160,6 +160,19 @@ body {
   background-color: var(--backgroundColorHover);
   border-color: var(--borderColorActive);
 }
+.buttonSpan:hover {
+  background-color: var(--backgroundColorHover);
+}
+.buttonSpan:active {
+  transition: 0s;
+  background-color: var(--backgroundColorHover);
+  border-color: var(--borderColorActive);
+}
+.buttonSpanActive {
+  transition: 0s;
+  background-color: var(--backgroundColorHover);
+  border-color: var(--borderColorActive);
+}
 .input {
   outline: none;
   background-color: var(--backgroundColor);
