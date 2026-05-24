@@ -3,7 +3,8 @@
   --backgroundColorActive: rgba(0, 125, 255, 0.15);
   --backgroundColorHover: rgba(0, 125, 255, 0.3);
   --backgroundColorFade: rgba(0, 0, 0, 0.4);
-  --backgroundColorRed: rgba(200, 0, 0, 0.05);
+  --backgroundColorRed: rgba(200, 0, 0, 0.15);
+  --backgroundColorRedHover: rgba(200, 0, 0, 0.3);
   --textColor: rgba(200, 200, 200, 1);
   --textColorRed: rgba(200, 0, 0, 1);
   --mainBorderColor: rgba(0, 125, 255, 0.3);
@@ -295,8 +296,8 @@ hr {
 }
 .logOut {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   outline: none;
   background-color: var(--backgroundColorRed);
   border: 1px solid var(--borderColorRed);
@@ -309,4 +310,11 @@ hr {
   text-align: center;
   transition: 0.2s;
   box-sizing: border-box;
+}
+.logOut:hover {
+  background-color: var(--backgroundColorRedHover);
+}
+.logOut:active {
+  transition-duration: 0s;
+  background-color: var(--borderColorRed);
 }
