@@ -8,6 +8,7 @@ let ids = {
   loans: document.getElementById('loans'),
   league: document.getElementById('league'),
   proposeLoan: document.getElementById('proposeLoan'),
+  exit: document.getElementById('exit'),
 };
 
 ids.home.addEventListener('click', function() {
@@ -18,6 +19,10 @@ ids.betting.addEventListener('click', function() {
 });
 ids.loans.addEventListener('click', function() {
   window.location.href = 'loans';
+});
+
+ids.exit.addEventListener('click', function() {
+  window.location.href = 'index';
 });
 
 ids.proposeLoan.addEventListener('click', function() {
