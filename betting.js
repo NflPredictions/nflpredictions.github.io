@@ -24,6 +24,7 @@ ids.league.addEventListener('click', function() {
 
 ids.exit.addEventListener('click', function() {
   window.location.href = 'index';
+});
 
 ids.inputClear.addEventListener('click', function() {
   search.value = '';
