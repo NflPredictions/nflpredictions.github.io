@@ -21,6 +21,6 @@ ids.league.addEventListener('click', function() {
   window.location.href = 'league';
 });
 
-ids.inputClear.addEventListener('click' function() {
+ids.inputClear.addEventListener('click', function() {
   search.value = '';
 });
