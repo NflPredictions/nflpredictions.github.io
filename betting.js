@@ -12,11 +12,9 @@ let ids = {
 ids.home.addEventListener('click', function() {
   window.location.href = 'home';
 });
-
 ids.loans.addEventListener('click', function() {
   window.location.href = 'loans';
 });
-
 ids.league.addEventListener('click', function() {
   window.location.href = 'league';
 });
