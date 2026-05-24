@@ -4,3 +4,8 @@ let ids = {
   signUp: document.getElementById('signUp'),
   signIn: document.getElementById('signIn'),
 };
+
+ids.signIn.addEventListener('click', function() {
+  set('signedIn', true);
+  window.location.href = 'home';
+});
