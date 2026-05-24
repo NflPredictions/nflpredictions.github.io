@@ -294,27 +294,3 @@ hr {
   box-sizing: border-box;
   margin: 0;
 }
-.logOut {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  outline: none;
-  background-color: var(--backgroundColorRed);
-  border: 1px solid var(--borderColorRed);
-  border-radius: var(--borderRadius);
-  padding: 8px 15px;
-  color: var(--textColorRed);
-  font-size: 1rem;
-  cursor: pointer;
-  min-width: 80px;
-  text-align: center;
-  transition: 0.2s;
-  box-sizing: border-box;
-}
-.logOut:hover {
-  background-color: var(--backgroundColorRedHover);
-}
-.logOut:active {
-  transition-duration: 0s;
-  background-color: var(--borderColorRed);
-}
