@@ -9,6 +9,7 @@ let ids = {
   league: document.getElementById('league'),
   search: document.getElementById('search'),
   inputClear: document.getElementById('inputClear'),
+  exit: document.getElementById('exit'),
 };
 
 ids.home.addEventListener('click', function() {
@@ -20,6 +21,9 @@ ids.loans.addEventListener('click', function() {
 ids.league.addEventListener('click', function() {
   window.location.href = 'league';
 });
+
+ids.exit.addEventListener('click', function() {
+  window.location.href = 'index';
 
 ids.inputClear.addEventListener('click', function() {
   search.value = '';
