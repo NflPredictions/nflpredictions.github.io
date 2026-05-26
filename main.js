@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-authentification.js";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCictD2QgC4sK-GTqpFeLOiDJucCziVjeE",
@@ -13,6 +14,7 @@ export const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
+export const auth = getAuth(app);
 
 export function set(a, b) {
   localStorage.setItem(a, JSON.stringify(b));
