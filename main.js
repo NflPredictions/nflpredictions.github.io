@@ -14,10 +14,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-window.set = function(a, b) {
+export function set(a, b) {
   localStorage.setItem(a, JSON.stringify(b));
 }
 
-window.get = function(a) {
+export function get(a) {
   return JSON.parse(localStorage.getItem(a));
 }
