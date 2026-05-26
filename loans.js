@@ -1,4 +1,4 @@
-import { set, get } from "/main.js";
+import { firebaseConfig, app, analitics, set, get } from "/main.js";
 
 if (get('signedIn') !== true) {
   window.location.href = 'index';
