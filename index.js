@@ -15,24 +15,25 @@ ids.signUp.addEventListener('click', async function() {
   const email = emailInput.value;
   const password = passwordInput.value;
   try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log('User signed up:', userCredential.user);
-      authStatus.textContent = `Signed up as: ${userCredential.user.email}`;
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    console.log('User signed up:', userCredential.user);
+    authStatus.textContent = `Signed up as: ${userCredential.user.email}`;
   } catch (error) {
-      console.error('Error signing up:', error.message);
-      authStatus.textContent = `Error signing up: ${error.message}`;
+    console.error('Error signing up:', error.message);
+    authStatus.textContent = `Error signing up: ${error.message}`;
   }
 });
 
 signIn.addEventListener('click', async function() {
-    const email = emailInput.value;
-    const password = passwordInput.value;
-    try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log('User signed in:', userCredential.user);
-        authStatus.textContent = `Signed in as: ${userCredential.user.email}`;
-    } catch (error) {
-        console.error('Error signing in:', error.message);
-        authStatus.textContent = `Error signing in: ${error.message}`;
-    }
+  const email = emailInput.value;
+  const password = passwordInput.value;
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    console.log('User signed in:', userCredential.user);
+    authStatus.textContent = `Signed in as: ${userCredential.user.email}`;
+    window.loccation.href = 'leagues';
+  } catch (error) {
+    console.error('Error signing in:', error.message);
+    authStatus.textContent = `Error signing in: ${error.message}`;
+  }
 });
