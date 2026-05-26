@@ -1,4 +1,4 @@
-import { set, get } from "/main.js";
+import { firebaseConfig, app, analytics, set, get } from "/main.js";
 
 set('signedIn', false);
 set('username', '');
