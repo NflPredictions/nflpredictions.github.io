@@ -13,5 +13,5 @@ let ids = {
 ids.signIn.addEventListener('click', function() {
   set('signedIn', true);
   set('username', ids.username.value);
-  window.location.href = 'home';
+  window.location.href = 'leagues';
 });
