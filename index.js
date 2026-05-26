@@ -1,3 +1,5 @@
+import { set, get } from "/main.js";
+
 set('signedIn', false);
 set('username', '');
 
