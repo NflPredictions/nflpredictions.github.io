@@ -10,8 +10,15 @@ let ids = {
   signIn: document.getElementById('signIn'),
 };
 
-ids.signIn.addEventListener('click', function() {
-  set('signedIn', true);
-  set('username', ids.username.value);
-  window.location.href = 'leagues';
+ids.signIn.addEventListener('click', async function() {
+  const email = emailInput.value;
+  const password = passwordInput.value;
+  try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log('User signed up:', userCredential.user);
+      authStatus.textContent = `Signed up as: ${userCredential.user.email}`;
+  } catch (error) {
+      console.error('Error signing up:', error.message);
+      authStatus.textContent = `Error signing up: ${error.message}`;
+  }
 });
