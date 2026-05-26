@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 import { firebaseConfig, app, analytics, set, get } from "/main.js";
 
 set('signedIn', false);
@@ -11,7 +11,7 @@ let ids = {
   signIn: document.getElementById('signIn'),
 };
 
-ids.signIn.addEventListener('click', async function() {
+ids.signUp.addEventListener('click', async function() {
   const email = emailInput.value;
   const password = passwordInput.value;
   try {
@@ -22,4 +22,17 @@ ids.signIn.addEventListener('click', async function() {
       console.error('Error signing up:', error.message);
       authStatus.textContent = `Error signing up: ${error.message}`;
   }
+});
+
+signIn.addEventListener('click', async function() => {
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log('User signed in:', userCredential.user);
+        authStatus.textContent = `Signed in as: ${userCredential.user.email}`;
+    } catch (error) {
+        console.error('Error signing in:', error.message);
+        authStatus.textContent = `Error signing in: ${error.message}`;
+    }
 });
