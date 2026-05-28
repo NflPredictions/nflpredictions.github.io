@@ -1,6 +1,8 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 import { auth, set, get, sleep } from "/main.js";
 
+set('user', '');
+
 let ids = {
   email: document.getElementById('email'),
   password: document.getElementById('password'),
@@ -22,6 +24,7 @@ ids.signUp.addEventListener('click', async function() {
     ids.headerGreen.display = 'flex';
     await sleep(3000);
     ids.headerGreen.display = 'none';
+    set('user', userCredential);
   } catch (error) {
     console.error('Error signing up:', error.message);
     ids.authRed.textContent = `Error signing up: ${error.message}`;
@@ -38,6 +41,7 @@ signIn.addEventListener('click', async function() {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     console.log('User signed in:', userCredential.user);
     window.loccation.href = 'leagues';
+    set('user', userCredential);
   } catch (error) {
     console.error('Error signing in:', error.message);
     ids.authRed.textContent = `Error signing in: ${error.message}`;
