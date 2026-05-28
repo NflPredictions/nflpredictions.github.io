@@ -331,6 +331,8 @@ hr {
   padding: 20px;
   background-color: var(--backgroundColorGreen);
   box-sizing: border-box;
+  display: none;
+  transition-duration: 0.5s;
 }
 .headerRed {
   position: absolute;
@@ -345,4 +347,6 @@ hr {
   padding: 20px;
   background-color: var(--backgroundColorRedSolid);
   box-sizing: border-box;
+  display: none;
+  transition-duration: 0.5s;
 }
