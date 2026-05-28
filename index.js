@@ -19,13 +19,13 @@ ids.signUp.addEventListener('click', async function() {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     console.log('User signed up:', userCredential.user);
     ids.authGreen.textContent = `Signed up as: ${userCredential.user.email}`;
-    ids.headerGreen.display = 'block';
+    ids.headerGreen.display = 'flex';
     await sleep(3000);
     ids.headerGreen.display = 'none';
   } catch (error) {
     console.error('Error signing up:', error.message);
     ids.authRed.textContent = `Error signing up: ${error.message}`;
-    ids.headerRed.display = 'block';
+    ids.headerRed.display = 'flex';
     await sleep(3000);
     ids.headerRed.display = 'none';
   }
@@ -41,7 +41,7 @@ signIn.addEventListener('click', async function() {
   } catch (error) {
     console.error('Error signing in:', error.message);
     ids.authRed.textContent = `Error signing in: ${error.message}`;
-    ids.headerRed.display = 'block';
+    ids.headerRed.display = 'flex';
     await sleep(3000);
     ids.headerRed.display = 'none';
   }
