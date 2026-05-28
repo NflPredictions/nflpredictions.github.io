@@ -15,6 +15,8 @@ export const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const auth = getAuth(app);
+export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 
 export function set(a, b) {
   localStorage.setItem(a, JSON.stringify(b));
