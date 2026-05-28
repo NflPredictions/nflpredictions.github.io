@@ -1,19 +1,16 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 import { auth, set, get } from "/main.js";
 
-set('signedIn', false);
-set('username', '');
-
 let ids = {
-  username: document.getElementById('username'),
+  email: document.getElementById('email'),
   password: document.getElementById('password'),
   signUp: document.getElementById('signUp'),
   signIn: document.getElementById('signIn'),
 };
 
 ids.signUp.addEventListener('click', async function() {
-  const email = emailInput.value;
-  const password = passwordInput.value;
+  const email = ids.email.value;
+  const password = ids.password.value;
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     console.log('User signed up:', userCredential.user);
@@ -25,8 +22,8 @@ ids.signUp.addEventListener('click', async function() {
 });
 
 signIn.addEventListener('click', async function() {
-  const email = emailInput.value;
-  const password = passwordInput.value;
+  const email = ids.email.value;
+  const password = ids.password.value;
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     console.log('User signed in:', userCredential.user);
