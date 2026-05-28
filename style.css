@@ -5,6 +5,8 @@
   --backgroundColorFade: rgba(0, 0, 0, 0.4);
   --backgroundColorRed: rgba(200, 0, 0, 0.15);
   --backgroundColorRedHover: rgba(200, 0, 0, 0.3);
+  --backgroundColorRedSolid: rgba(255, 0, 0, 0.55);
+  --backgroundColorGreen: rgba(100, 255, 0, 0.35);
   --textColor: rgba(200, 200, 200, 1);
   --textColorRed: rgba(200, 0, 0, 1);
   --mainBorderColor: rgba(0, 125, 255, 0.3);
@@ -314,5 +316,33 @@ hr {
   align-items: center;
   margin: 0;
   padding: 0 20px;
+  box-sizing: border-box;
+}
+.headerGreen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--backgroundColorGreen);
+  box-sizing: border-box;
+}
+.headerRed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--backgroundColorRedSolid);
   box-sizing: border-box;
 }
