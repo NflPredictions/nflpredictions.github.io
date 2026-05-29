@@ -1,7 +1,13 @@
 import { auth, set, get } from "/main.js";
 
-if (get('signedIn') !== true) {
-  window.location.href = 'index';
+async function exit() {
+  try {
+    await signOut(auth);
+    set('user', '');
+    window.location.href = '/index';
+  } catch (error) {
+    console.error(`Error signing out ${error.message}`);
+  }
 }
 
 let ids = {
@@ -24,8 +30,8 @@ ids.league.addEventListener('click', function() {
   window.location.href = 'league';
 });
 
-ids.exit.addEventListener('click', function() {
-  window.location.href = 'index';
+ids.exit.addEventListener('click', async function() {
+  exit();
 });
 
 ids.inputClear.addEventListener('click', function() {
