@@ -22,15 +22,15 @@ ids.signUp.addEventListener('click', async function() {
     console.log('User signed up:', userCredential.user);
     set('user', userCredential);
     ids.authGreen.textContent = `Signed up as: ${userCredential.user.email}`;
-    ids.headerGreen.style.display = 'flex';
+    ids.headerGreen.classList.add('show');
     await sleep(3000);
-    ids.headerGreen.style.display = 'none';
+    ids.headerGreen.classList.delete('show');
   } catch (error) {
     ids.authRed.textContent = `Error signing up: ${error.message}`;
     console.error('Error signing up:', error.message);
-    ids.headerRed.style.display = 'flex';
+    ids.headerRed.classList.add('show');
     await sleep(3000);
-    ids.headerRed.style.display = 'none';
+    ids.headerRed.classList.delete('show');
   }
 });
 
@@ -45,8 +45,8 @@ signIn.addEventListener('click', async function() {
   } catch (error) {
     console.error('Error signing in:', error.message);
     ids.authRed.textContent = `Error signing in: ${error.message}`;
-    ids.headerRed.style.display = 'flex';
+    ids.headerRed.classList.add('show');
     await sleep(3000);
-    ids.headerRed.style.display = 'none';
+    ids.headerRed.classList.delete('show');
   }
 });
