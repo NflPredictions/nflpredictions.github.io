@@ -8,11 +8,11 @@ async function exit() {
     console.log('User signed out');
     window.location.href = 'index';
   } catch (error) {
-    ids.authRed.textContent = `Error signing out: ${error.message}`;
-    ids.headerRed.display = 'flex';
-    await sleep(3000);
-    ids.headerRed.display = 'none';
     console.error('Error signing out:', error.message);
+    ids.authRed.textContent = `Error signing out: ${error.message}`;
+    ids.headerRed.style.display = 'flex';
+    await sleep(3000);
+    ids.headerRed.style.display = 'none';
   }
 }
 
