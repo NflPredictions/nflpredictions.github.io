@@ -12,7 +12,7 @@ async function exit() {
     ids.authRed.textContent = `Error signing out: ${error.message}`;
     ids.headerRed.classList.add('show');
     await sleep(3000);
-    ids.headerRed.classList.delete('show');
+    ids.headerRed.classList.remove('show');
   }
 }
 
