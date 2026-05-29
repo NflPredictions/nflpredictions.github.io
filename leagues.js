@@ -18,7 +18,7 @@ async function exit() {
 
 let ids = {
   createLeague: document.getElementById('createLeague'),
-  joinLeague: document.getElementbyId('joinLeague'),
+  joinLeague: document.getElementById('joinLeague'),
   exit: document.getElementById('exit'),
 };
 
