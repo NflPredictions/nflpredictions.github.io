@@ -1,7 +1,14 @@
-import { auth, set, get } from "/main.js";
+import { auth, set, get, sleep } from "/main.js";
+import { signOut } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
-if (get('signedIn') !== true) {
-  window.location.href = 'index';
+async function exit() {
+  try {
+    await signOut(auth);
+    set('user', '');
+    window.location.href = '/index';
+  } catch (error) {
+    console.error(`Error signing out ${error.message}`);
+  }
 }
 
 let ids = {
@@ -15,6 +22,6 @@ createLeague.addEventListener('click', function() {
 joinLeague.addEventListener('click', function() {
 });
 
-exit.addEventListener('click', function() {
-  window.location.href = 'index';
+exit.addEventListener('click', async function() {
+  exit();
 });
