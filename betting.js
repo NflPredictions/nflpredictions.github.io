@@ -10,9 +10,9 @@ async function exit() {
   } catch (error) {
     console.error('Error signing out:', error.message);
     ids.authRed.textContent = `Error signing out: ${error.message}`;
-    ids.headerRed.style.display = 'flex';
+    ids.headerRed.classList.add('show');
     await sleep(3000);
-    ids.headerRed.style.display = 'none';
+    ids.headerRed.classList.delete('show');
   }
 }
 
