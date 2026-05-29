@@ -1,4 +1,5 @@
-import { auth, set, get } from "/main.js";
+import { auth, set, get, sleep } from "/main.js";
+import { signOut } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
 async function exit() {
   try {
