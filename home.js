@@ -1,6 +1,16 @@
 import { auth, set, get, sleep } from "/main.js";
 import { signOut } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
+async function exit() {
+  try {
+    await signOut(auth);
+    set('user', '');
+    window.location.href = '/index';
+  } catch (error) {
+    console.error(`Error signing out ${error.message}`);
+  }
+}
+
 let ids = {
   home: document.getElementById('home'),
   betting: document.getElementById('betting'),
@@ -21,15 +31,7 @@ ids.league.addEventListener('click', function() {
 });
 
 ids.exit.addEventListener('click', async function() {
-  try {
-    await signOut(auth);
-    console.log('User signed out');
-    authStatus.textContent = 'Signed out';
-    window.location.href = 'index';
-  } catch (error) {
-    console.error('Error signing out', error.message);
-    authStatus.textContent = `Error signing out ${error.message}`;
-  }
+  exit();
 });
 
 ids.proposeLoan.addEventListener('click', function() {
