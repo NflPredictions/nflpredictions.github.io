@@ -22,11 +22,11 @@ let ids = {
   exit: document.getElementById('exit'),
 };
 
-createLeague.addEventListener('click', function() {
+ids.createLeague.addEventListener('click', function() {
 });
-joinLeague.addEventListener('click', function() {
+ids.joinLeague.addEventListener('click', function() {
 });
 
-exit.addEventListener('click', async function() {
+ids.exit.addEventListener('click', async function() {
   exit();
 });
