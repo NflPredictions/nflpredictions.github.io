@@ -40,8 +40,8 @@ signIn.addEventListener('click', async function() {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     console.log('User signed in:', userCredential.user);
-    window.location.href = 'leagues';
     set('user', userCredential);
+    window.location.href = 'leagues';
   } catch (error) {
     console.error('Error signing in:', error.message);
     ids.authRed.textContent = `Error signing in: ${error.message}`;
