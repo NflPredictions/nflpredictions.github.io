@@ -24,13 +24,13 @@ ids.signUp.addEventListener('click', async function() {
     ids.authGreen.textContent = `Signed up as: ${userCredential.user.email}`;
     ids.headerGreen.classList.add('show');
     await sleep(3000);
-    ids.headerGreen.classList.delete('show');
+    ids.headerGreen.classList.remove('show');
   } catch (error) {
     ids.authRed.textContent = `Error signing up: ${error.message}`;
     console.error('Error signing up:', error.message);
     ids.headerRed.classList.add('show');
     await sleep(3000);
-    ids.headerRed.classList.delete('show');
+    ids.headerRed.classList.remove('show');
   }
 });
 
@@ -47,6 +47,6 @@ signIn.addEventListener('click', async function() {
     ids.authRed.textContent = `Error signing in: ${error.message}`;
     ids.headerRed.classList.add('show');
     await sleep(3000);
-    ids.headerRed.classList.delete('show');
+    ids.headerRed.classList.remove('show');
   }
 });
