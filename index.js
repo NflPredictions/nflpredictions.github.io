@@ -37,7 +37,7 @@ ids.signUp.addEventListener('click', async function() {
     set('user', userCredential);
 
     const userData = {
-      name: userCredential.user.email.substring(userCredential.user.email.indexOf('@')),
+      name: userCredential.user.email.substring(0, userCredential.user.email.indexOf('@')),
       leagues: {league: {}},
     };
     await createUser(userCredential.user.uid, userData);
