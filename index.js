@@ -26,8 +26,8 @@ ids.signUp.addEventListener('click', async function() {
     await sleep(3000);
     ids.headerGreen.classList.remove('show');
   } catch (error) {
-    ids.authRed.textContent = `Error signing up: ${error.message}`;
     console.error('Error signing up:', error.message);
+    ids.authRed.textContent = `Error signing up: ${error.message}`;
     ids.headerRed.classList.add('show');
     await sleep(3000);
     ids.headerRed.classList.remove('show');
