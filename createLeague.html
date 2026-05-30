@@ -3,10 +3,30 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Predictions || Leagues</title>
+    <title>NFL Predictions || Create League</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    
+    <script type = "module" src="redirect.js"></script>
+    <div id="headerGreen" class="headerGreen">
+      <span id="authGreen"></span>
+    </div>
+    <div id="headerRed" class="headerRed">
+      <span id="authRed"></span>
+    </div>
+    <div class="mainDiv">
+      <div class="header">
+        <br>
+        <h1 class="h1">NFL Predictions</h1>
+        <button id="exit" class="exit">X</button>
+      </div>
+      <hr>
+      <div class="scroll">
+        <input class="input" placeholder="Name">
+        <button id="createLeague" class="buttonSpan">Create League</button>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="leagues.js"></script>
   </body>
 </html>
