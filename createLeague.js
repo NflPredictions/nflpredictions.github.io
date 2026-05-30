@@ -1,4 +1,5 @@
-
+import { auth, db, set, get, sleep } from "/main.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 const ids = {
   name: document.getElementById('name'),
@@ -9,5 +10,6 @@ const ids = {
 };
 
 async function createLeague() {
-
+  try {
+    const docRef = doc(
 }
