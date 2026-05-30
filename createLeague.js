@@ -7,9 +7,20 @@ const ids = {
   cash: document.getElementById('cash'),
   createLeague: document.getElementById('createLeague'),
   exit: document.getElementById('exit'),
+  headerRed: document.getElementById('headerRed'),
+  authRed: document.getElementById('authRed'),
 };
 
-async function createLeague() {
+async function createLeague(leagueID, leagueData) {
   try {
-    const docRef = doc(
+    const docRef = doc(db, 'leagues', leagueID);
+    await setDoc(docRef, leagueData);
+    console.log("Document written with ID: ", docRef.id);
+  } catch (error) {
+    console.error("Error adding document: ", error.message);
+  }
 }
+
+ids.createLeague.addEventListener('click', async function() {
+
+});
