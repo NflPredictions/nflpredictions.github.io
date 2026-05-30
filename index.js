@@ -1,8 +1,6 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
-import { auth, set, get, sleep } from "/main.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
-
-const db = getFirestore();
+import { auth, db, set, get, sleep } from "/main.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 set('user', '');
 
