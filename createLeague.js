@@ -30,5 +30,5 @@ ids.createLeague.addEventListener('click', async function() {
 });
 
 ids.exit.addEventListener('click', function() {
-  window.location.href = 'league';
+  window.location.href = 'leagues';
 });
