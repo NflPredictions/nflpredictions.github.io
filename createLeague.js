@@ -1,4 +1,4 @@
-import { auth, db, set, get, sleep } from "/main.js";
+import { auth, db, set, get, sleep, createLeague, getUserData } from "/main.js";
 import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 const ids = {
@@ -13,7 +13,7 @@ const ids = {
   authGreen: document.getElementById('authGreen'),
 };
 
-async function createLeague(userID, leagueData) {
+async function createLeague(userID, leagueData, ids) {
   try {
     const docRef = doc(db, 'leagues', userID);
     await setDoc(docRef, leagueData);
@@ -25,20 +25,6 @@ async function createLeague(userID, leagueData) {
   } catch (error) {
     console.error("Error adding document: ", error.message);
     ids.authRed.textContent = 'League Creation Failed';
-    ids.headerRed.classList.add('show');
-    await sleep(3000);
-    ids.headerRed.classList.remove('show');
-  }
-}
-
-async function getUserData(userID, ids) {
-  try {
-    const docRef = doc(db, 'users', userID);
-    const data = getDoc(docRef);
-    return data;
-  } catch (error) {
-    console.error("Error retrieving user data: ", error.message);
-    ids.authRed.textContent = 'User Data Fetch Failed';
     ids.headerRed.classList.add('show');
     await sleep(3000);
     ids.headerRed.classList.remove('show');
