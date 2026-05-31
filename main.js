@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCictD2QgC4sK-GTqpFeLOiDJucCziVjeE",
@@ -26,4 +26,18 @@ export function set(a, b) {
 
 export function get(a) {
   return JSON.parse(localStorage.getItem(a));
+}
+
+export async function getUserData(userID, ids) {
+  try {
+    const docRef = doc(db, 'users', userID);
+    const data = getDoc(docRef);
+    return data;
+  } catch (error) {
+    console.error("Error retrieving user data: ", error.message);
+    ids.authRed.textContent = 'User Data Fetch Failed';
+    ids.headerRed.classList.add('show');
+    await sleep(3000);
+    ids.headerRed.classList.remove('show');
+  }
 }
