@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
-import { auth, db, set, get, sleep } from "/main.js";
+import { set, signUp } from "/main.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 set('user', '');
@@ -26,7 +26,7 @@ async function createUser(userID, userData) {
   }
 }
 
-ids.signUp.addEventListener('click', async function() {
+async function signUp(ids) {
   const email = ids.email.value;
   const password = ids.password.value;
   try {
@@ -51,9 +51,9 @@ ids.signUp.addEventListener('click', async function() {
     await sleep(3000);
     ids.headerRed.classList.remove('show');
   }
-});
+}
 
-ids.signIn.addEventListener('click', async function() {
+async function signIn(ids) {
   const email = ids.email.value;
   const password = ids.password.value;
   try {
@@ -68,4 +68,12 @@ ids.signIn.addEventListener('click', async function() {
     await sleep(3000);
     ids.headerRed.classList.remove('show');
   }
+}
+
+ids.signUp.addEventListener('click', async function() {
+  signUp(ids);
+});
+
+ids.signIn.addEventListener('click', async function() {
+  signIn(ids);
 });
