@@ -111,3 +111,20 @@ export async function signUp(ids) {
     ids.headerRed.classList.remove('show');
   }
 }
+
+async function signIn(ids) {
+  const email = ids.email.value;
+  const password = ids.password.value;
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    set('user', userCredential);
+    console.log('User signed in:', userCredential.user);
+    window.location.href = 'leagues';
+  } catch (error) {
+    console.error('Error signing in:', error.message);
+    ids.authRed.textContent = `Error signing in: ${error.message}`;
+    ids.headerRed.classList.add('show');
+    await sleep(3000);
+    ids.headerRed.classList.remove('show');
+  }
+}
