@@ -26,7 +26,7 @@ ids.createLeague.addEventListener('click', async function() {
       cash: ids.cash.value,
     },
   }
-  createLeague(user.uid, leagueData);
+  createLeague(user.uid, leagueData, ids);
 });
 
 ids.exit.addEventListener('click', function() {
