@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
 export const firebaseConfig = {
@@ -54,6 +54,21 @@ export async function createLeague(userID, leagueData, ids) {
   } catch (error) {
     console.error("Error adding document: ", error.message);
     ids.authRed.textContent = 'League Creation Failed';
+    ids.headerRed.classList.add('show');
+    await sleep(3000);
+    ids.headerRed.classList.remove('show');
+  }
+}
+
+export async function exit(ids) {
+  try {
+    await signOut(auth);
+    set('user', '');
+    console.log('User signed out');
+    window.location.href = 'index';
+  } catch (error) {
+    console.error('Error signing out:', error.message);
+    ids.authRed.textContent = `Error signing out: ${error.message}`;
     ids.headerRed.classList.add('show');
     await sleep(3000);
     ids.headerRed.classList.remove('show');
