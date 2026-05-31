@@ -20,7 +20,6 @@ ids.createLeague.addEventListener('click', async function() {
     password: ids.password.value,
     cash: ids.cash.value,
     users: {
-      uid: user.uid, 
       name: getUserData(user.uid, ids).name,
       cash: ids.cash.value,
     },
