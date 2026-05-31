@@ -74,3 +74,13 @@ export async function exit(ids) {
     ids.headerRed.classList.remove('show');
   }
 }
+
+export async function createUser(userID, userData) {
+  try {
+    const docRef = doc(db, 'users', userID);
+    await setDoc(docRef, userData);
+    console.log("Document written with ID: ", docRef.id);
+  } catch (error) {
+    console.error("Error adding document: ", error.message);
+  }
+}
