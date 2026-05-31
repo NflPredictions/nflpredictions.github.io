@@ -84,3 +84,30 @@ export async function createUser(userID, userData) {
     console.error("Error adding document: ", error.message);
   }
 }
+
+export async function signUp(ids) {
+  const email = ids.email.value;
+  const password = ids.password.value;
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    console.log('User signed up:', userCredential.user);
+    set('user', userCredential);
+
+    const userData = {
+      name: userCredential.user.email.substring(0, userCredential.user.email.indexOf('@')),
+      leagues: {league: {}},
+    };
+    await createUser(userCredential.user.uid, userData);
+    
+    ids.authGreen.textContent = `Signed up as: ${userCredential.user.email}`;
+    ids.headerGreen.classList.add('show');
+    await sleep(3000);
+    ids.headerGreen.classList.remove('show');
+  } catch (error) {
+    console.error('Error signing up:', error.message);
+    ids.authRed.textContent = `Error signing up: ${error.message}`;
+    ids.headerRed.classList.add('show');
+    await sleep(3000);
+    ids.headerRed.classList.remove('show');
+  }
+}
