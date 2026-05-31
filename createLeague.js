@@ -1,6 +1,8 @@
 import { auth, db, set, get, sleep, createLeague, getUserData } from "/main.js";
 import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
+const user = get('user').user;
+
 const ids = {
   name: document.getElementById('name'),
   password: document.getElementById('password'),
@@ -13,35 +15,18 @@ const ids = {
   authGreen: document.getElementById('authGreen'),
 };
 
-async function createLeague(userID, leagueData, ids) {
-  try {
-    const docRef = doc(db, 'leagues', userID);
-    await setDoc(docRef, leagueData);
-    console.log("Document written with ID: ", docRef.id);
-    ids.authGreen.textContent = 'League Created';
-    ids.headerGreen.classList.add('show');
-    await sleep(3000);
-    ids.headerGreen.classList.remove('show');
-  } catch (error) {
-    console.error("Error adding document: ", error.message);
-    ids.authRed.textContent = 'League Creation Failed';
-    ids.headerRed.classList.add('show');
-    await sleep(3000);
-    ids.headerRed.classList.remove('show');
-  }
-}
-
 ids.createLeague.addEventListener('click', async function() {
   const leagueData = {
     name: ids.name.value,
     password: ids.password.value,
     cash: ids.cash.value,
     users: {
-      uid: get('user').user.uid, 
-      name: get('user').user.name, 
+      uid: user.uid, 
+      name: getUserData(user.uid, ids).name,
+      cash: ids.cash.value,
     },
   }
-  createLeague(get('user').user.uid, leagueData);
+  createLeague(user.uid, leagueData);
 });
 
 ids.exit.addEventListener('click', function() {
