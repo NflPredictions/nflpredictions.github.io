@@ -41,3 +41,21 @@ export async function getUserData(userID, ids) {
     ids.headerRed.classList.remove('show');
   }
 }
+
+export async function createLeague(userID, leagueData, ids) {
+  try {
+    const docRef = doc(db, 'leagues', userID);
+    await setDoc(docRef, leagueData);
+    console.log("Document written with ID: ", docRef.id);
+    ids.authGreen.textContent = 'League Created';
+    ids.headerGreen.classList.add('show');
+    await sleep(3000);
+    ids.headerGreen.classList.remove('show');
+  } catch (error) {
+    console.error("Error adding document: ", error.message);
+    ids.authRed.textContent = 'League Creation Failed';
+    ids.headerRed.classList.add('show');
+    await sleep(3000);
+    ids.headerRed.classList.remove('show');
+  }
+}
