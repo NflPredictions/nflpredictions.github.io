@@ -1,5 +1,4 @@
-import { auth, db, set, get, sleep, createLeague, getUserData } from "/main.js";
-import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+import { get, createLeague, getUserData } from "/main.js";
 
 const user = get('user').user;
 
