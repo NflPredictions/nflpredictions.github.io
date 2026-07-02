@@ -110,7 +110,7 @@ export async function signUp(ids) {
   }
 }
 
-async function signIn(ids) {
+export async function signIn(ids) {
   const email = ids.email.value;
   const password = ids.password.value;
   try {
