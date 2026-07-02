@@ -34,8 +34,8 @@ export async function getUserData(userID, ids) {
     const data = getDoc(docRef);
     return data;
   } catch (error) {
-    console.error("Error retrieving user data: ", error.message);
-    ids.authRed.textContent = 'User Data Fetch Failed';
+    console.error('Error retrieving user data');
+    ids.authRed.textContent = 'Error retrieving user data';
     ids.headerRed.classList.add('show');
     await sleep(3000);
     ids.headerRed.classList.remove('show');
@@ -46,13 +46,13 @@ export async function createLeague(userID, leagueData, ids) {
   try {
     const docRef = doc(db, 'leagues', userID);
     await setDoc(docRef, leagueData);
-    console.log("Document written with ID: ", docRef.id);
+    console.log('Document written with ID: ', docRef.id);
     ids.authGreen.textContent = 'League Created';
     ids.headerGreen.classList.add('show');
     await sleep(3000);
     ids.headerGreen.classList.remove('show');
   } catch (error) {
-    console.error("Error adding document: ", error.message);
+    console.error('Error adding document: ', error.message);
     ids.authRed.textContent = 'League Creation Failed';
     ids.headerRed.classList.add('show');
     await sleep(3000);
@@ -68,7 +68,7 @@ export async function exit(ids) {
     window.location.href = 'index';
   } catch (error) {
     console.error('Error signing out:', error.message);
-    ids.authRed.textContent = `Error signing out: ${error.message}`;
+    ids.authRed.textContent = 'Error signing out';
     ids.headerRed.classList.add('show');
     await sleep(3000);
     ids.headerRed.classList.remove('show');
@@ -79,9 +79,9 @@ export async function createUser(userID, userData) {
   try {
     const docRef = doc(db, 'users', userID);
     await setDoc(docRef, userData);
-    console.log("Document written with ID: ", docRef.id);
+    console.log('Document written with ID: ', docRef.id);
   } catch (error) {
-    console.error("Error adding document: ", error.message);
+    console.error('Error adding document: ', error.message);
   }
 }
 
@@ -92,20 +92,19 @@ export async function signUp(ids) {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     console.log('User signed up:', userCredential.user);
     set('user', userCredential);
-
     const userData = {
       name: userCredential.user.email.substring(0, userCredential.user.email.indexOf('@')),
       leagues: {league: {}},
     };
     await createUser(userCredential.user.uid, userData);
     
-    ids.authGreen.textContent = `Signed up as: ${userCredential.user.email}`;
+    ids.authGreen.textContent = 'Sign Up Successful;
     ids.headerGreen.classList.add('show');
     await sleep(3000);
     ids.headerGreen.classList.remove('show');
   } catch (error) {
     console.error('Error signing up:', error.message);
-    ids.authRed.textContent = `Error signing up: ${error.message}`;
+    ids.authRed.textContent = 'Error Signing Up';
     ids.headerRed.classList.add('show');
     await sleep(3000);
     ids.headerRed.classList.remove('show');
@@ -122,7 +121,7 @@ async function signIn(ids) {
     window.location.href = 'leagues';
   } catch (error) {
     console.error('Error signing in:', error.message);
-    ids.authRed.textContent = `Error signing in: ${error.message}`;
+    ids.authRed.textContent = 'Error Signing In';
     ids.headerRed.classList.add('show');
     await sleep(3000);
     ids.headerRed.classList.remove('show');
