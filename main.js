@@ -97,8 +97,7 @@ export async function signUp(ids) {
       leagues: {league: {}},
     };
     await createUser(userCredential.user.uid, userData);
-    
-    ids.authGreen.textContent = 'Sign Up Successful;
+    ids.authGreen.textContent = 'Sign Up Successful';
     ids.headerGreen.classList.add('show');
     await sleep(3000);
     ids.headerGreen.classList.remove('show');
